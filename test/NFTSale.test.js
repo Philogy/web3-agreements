@@ -246,11 +246,13 @@ describe('NFTSale', () => {
           .to.emit(sale, 'OwnershipTransferred')
           .withArgs(owner.address, user1.address)
         expect(await sale.owner()).to.equal(user1.address)
+        expect(await sale.beneficiary()).to.equal(user1.address)
         expect(await sale.topBidder()).to.equal(ethers.constants.AddressZero)
         expect(await sale.topBid()).to.equal(0)
         expect(await sale.auctionDeadline()).to.equal(0)
         expect(await sale.payments(owner.address)).to.equal(lastBid)
         await sale1.transferOwnership(owner.address)
+        await sale.setBeneficiary(owner.address)
       })
     })
 
