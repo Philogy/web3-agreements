@@ -77,6 +77,7 @@ contract NFTSale is ERC721Holder, Ownable, PullPayment {
         address beneficiary_ = beneficiary;
         if (successfulBidder != address(0)) {
             _transferOwnership(successfulBidder);
+            beneficiary = successfulBidder;
             _asyncTransfer(beneficiary_, lastBid);
             emit AuctionSettled(successfulBidder, beneficiary_, lastBid);
         } else {
