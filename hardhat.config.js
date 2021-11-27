@@ -1,5 +1,6 @@
 require('dotenv').config()
 require('@nomiclabs/hardhat-ethers')
+require('@nomiclabs/hardhat-waffle')
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
